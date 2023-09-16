@@ -42,13 +42,37 @@
 
 ![image](https://github.com/TaichiIwamoto/EveryChat/assets/131168152/fc307768-8fda-454d-b430-841f8a8c2261)
 
-<ol>
+<li>
+  <b>github.com/TaichiIwamoto/EveryChatのリポジトリをローカルにクローンする</b><br>
+  まずGitBashをインストール<br>
+  https://gitforwindows.org/
+
+  ![image](https://github.com/TaichiIwamoto/EveryChat/assets/131168152/7fd73056-636d-4cbc-aef6-4d4dc1fe1cc9)
+
+  インストール後GitBashを起動し、クローンしたいディレクトリに移動する。<br>
+  (例：cd C:\Users\userName\Documents\GitHub)<br>
+  
+  ※初めてGitを使う場合は、ユーザ名とメールアドレスを設定する必要があります。(自分のGitHubアカウントで入力してください)<br>
+  git config --global user.name "Your Name"<br>
+  git config --global user.email "youremail@example.com"<br>
+
+  そして以下の内容を入力してcloneする。<br>
+  git clone https://github.com/TaichiIwamoto/EveryChat.git<br>
+  これで私のリポジトリがあなたのローカルリポジトリに保存されます<br>
+
+</li>
   <li> 
     <b>VisualStudioCodeでの拡張機能のダウンロード</b><br>
+    VisualStudioCodeを開き、左の欄から拡張機能を選択し、PHPと入力し検索する。<br>
+    PHP Debugという拡張機能をインストール...<br>
+    
+
+  ![image](https://github.com/TaichiIwamoto/EveryChat/assets/131168152/996f66cf-e704-461c-a88c-cb70d75cf587)
+
     
   </li>
 
-</ol>
+
 
 
   
