@@ -68,9 +68,44 @@
     
 
   ![image](https://github.com/TaichiIwamoto/EveryChat/assets/131168152/996f66cf-e704-461c-a88c-cb70d75cf587)
-
-    
   </li>
+
+  <li>
+    <b>VSCodeでローカルリポジトリをワークスペースに追加</b><br>
+  ファイル→フォルダーをワークスペースに追加<br>
+    から先程クローンしたリポジトリを選択<br>
+    
+  ![image](https://github.com/TaichiIwamoto/EveryChat/assets/131168152/fb84fd7e-2463-4ab5-90b1-2f9af4889564)
+
+  上手く行けば下記の図のようになるはず...<br>
+  ※.vscodeは存在しなくて大丈夫<br>
+
+![image](https://github.com/TaichiIwamoto/EveryChat/assets/131168152/c71e35e0-cedb-4df6-9a7c-66ea92339c24)
+
+その後、左の欄の実行とデバッグを選択し、"launch.jsonファイルを作成します"を選択。
+
+![image](https://github.com/TaichiIwamoto/EveryChat/assets/131168152/f87f5f89-efa6-4ba7-85b6-f3a7f1238ac4)
+
+そしたら下記の図のようなlaunch.jsonファイルが.vscode下に生成される
+
+![image](https://github.com/TaichiIwamoto/EveryChat/assets/131168152/a380320f-8a08-4518-ae6a-f10141ae676e)
+
+そしたらこのjsonファイルのListen for Xdebugの所にpathMappingsを加える。<br>
+ "name": "Listen for Xdebug",<br>
+            "type": "php",<br>
+            "request": "launch",<br>
+            "port": 9003,<br>
+            "pathMappings": {<br>
+                "リポジトリのルートディレクトリ(私の場合:c:\\Users\\taich\\OneDrive\\プログラミング\\PHP\\ChatTool\\ramnoisy.com)":"${workspaceFolder}"<br>
+            }<br>
+
+  index.phpをエディタで開き、F5(デバッグ)を押すと、localhost:8000が開き実行することが出来るはず<br>
+  下記の図みたいに<br>
+
+  ![image](https://github.com/TaichiIwamoto/EveryChat/assets/131168152/957e22d3-f973-435b-8817-3748d454f1d0)
+  </li>
+
+  以上の手順で分からないことやエラーが発生した場合は遠慮せずに聞いてください<br>
 
 
 
