@@ -1,1 +1,8 @@
-/.vscode
+# .gitignore
+*.env
+./.vscode
+vendor/
+.vscode/
+composer.json
+composer.lock
+var/
