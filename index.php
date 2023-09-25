@@ -19,6 +19,10 @@
         <button>phpmyadmin</button>
     </a>
 
+    <a href="util/displayLog.php">
+        <button>connectDB TEST</button>
+    </a>
+
 </body>
 
 </html>
