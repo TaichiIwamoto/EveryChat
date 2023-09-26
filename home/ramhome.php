@@ -26,7 +26,9 @@
         </div>
     </nav>
 
-    <a href=""></a>
+    <a href="../blog/editBlog.php">
+        <button>ブログ作成</button>
+    </a>
 
 
 </body>
