@@ -12,6 +12,8 @@ $sql = "CREATE TABLE IF NOT EXISTS user_table"
     . ");";
 $stmt = $pdo->query($sql);
 
+$sql = "CREATE TABLE IF NOT EXISTS article_table";
+
 echo "TABLE一覧<br>";
 $sql = "SHOW TABLES";
 $stmt = $pdo->query($sql);
