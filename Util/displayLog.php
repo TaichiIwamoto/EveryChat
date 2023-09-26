@@ -23,23 +23,25 @@ foreach ($result as $line) {
     $sql = "SELECT * FROM " . $line[0];
     $stmt = $pdo->query($sql);
     $result = $stmt->fetchAll();
+    $count = 0;
     echo "<table border=1>";
     foreach ($result as $row) {
         echo "<tr>";
         foreach ($row as $key => $value) {
-            if (!is_int($key)) {
-
+            if (!is_int($key) && $count != 1) {
                 echo "<th>{$key} </th>";
             }
         }
-        echo "<tr>";
+        $count += 1;
+
+        echo "</tr>";
         echo "<tr>";
         foreach ($row as $key => $value) {
             if (!is_int($key)) {
                 echo "<td>{$value} </td>";
             }
         }
-        echo "<tr>";
+        echo "</tr>";
     }
     echo "</table>";
 }
