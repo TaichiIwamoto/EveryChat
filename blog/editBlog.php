@@ -47,6 +47,9 @@ if (!empty($_POST['tmpSave'])) {
         <div class="container-fluid">
             <img src="../resource/RAMSNOISE.png" class="img-fluid">
         </div>
+        <a href="../home/ramhome.php">
+            <button class="btn btn-primary">ホームへ</button>
+        </a>
     </nav>
 
     <!-- 記事タイトル -->
@@ -83,6 +86,7 @@ if (!empty($_POST['tmpSave'])) {
         <div class="btn-group" role="group" aria-label="Basic outlined example">
             <input name="tmpSave" id="tmpSave" type="submit" class="btn-outline-info" value="一時保存">
             <input name="upload" type="submit" class="btn-success" value="投稿">
+            <input id="createArticle" type="submit" class="btn-outline-info" value="新規作成">
         </div>
         <br>
         <!-- 記事保存 -->

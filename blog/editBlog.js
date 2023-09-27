@@ -13,6 +13,7 @@
   var output = document.getElementById("output");
 
   var tmpSave = document.getElementById("tmpSave");
+  var createArticle = document.getElementById("createArticle");
 
   //エディター表示
   articleEdit.addEventListener("click", function () {
@@ -37,13 +38,13 @@
     let lines = articleText.split("\n");
     for (let i = 0; i < lines.length; i++) {
       let line = lines[i];
-      if (line.indexOf("<link>") != -1) {
-        line = line.replace("<link>", "");
+      if (line.indexOf("!link!") != -1) {
+        line = line.replace("!link!", "");
         console.log(line);
         output.innerHTML +=
           "<a target=_blank href=" + line + ">" + line + "</a><br>";
-      } else if (line.indexOf("<youtube>") != -1) {
-        line = line.replace("<youtube>", "");
+      } else if (line.indexOf("!youtube!") != -1) {
+        line = line.replace("!youtube!", "");
         line = line.replace("watch?v=", "embed/");
         console.log(line);
         output.innerHTML +=
@@ -95,7 +96,7 @@
         let regex = /^(https?|ftp)(:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+)/; //URL正規表現
         if (regex.test(str)) {
           console.log("一致しました");
-          articleBody.value += "\n<link>" + str;
+          articleBody.value += "\n!link!" + str;
           insert.value = "";
           modalClose.click();
         } else {
@@ -106,7 +107,7 @@
         let regex = /^https:\/\/www.youtube.com\/watch\?v=[\w&=]*/; //Youtube正規表現
         if (regex.test(str)) {
           console.log("一致しました");
-          articleBody.value += "\n<youtube>" + str;
+          articleBody.value += "\n!youtube!" + str;
           modalClose.click();
         } else {
           console.log("一致しませんでした");
@@ -118,6 +119,12 @@
       sessionStorage.setItem("articleBody", articleBody.value);
       sessionStorage.setItem("articleName", articleName.value);
     });
+
+    // createArticle.addEventListener("click", function () {
+    //   articleName = "";
+    //   articleBody = "";
+    //   window.onload();
+    // });
 
     window.addEventListener("load", function (event) {
       console.log(articleName.value);
