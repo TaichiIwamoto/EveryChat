@@ -10,49 +10,34 @@ $pdo = connect();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="./ramhome.css" type="text/css">
-    <title>RAMSNOISE</title>
+    <link rel="stylesheet" href="./editBlog.css" type="text/css">
+
+    <title>RAMSNOISE-BLOGVIEW</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <div class="container-fluid">
             <img src="../resource/RAMSNOISE.png" class="img-fluid">
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="記事・成果物" aria-label="Search">
-                <button class="btn btn-secondary" type="submit">検索</button>
-            </form>
         </div>
-    </nav>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand"><small>HOME PAGE</small></a>
-        </div>
+        <a href="../home/ramhome.php">
+            <button class="btn btn-primary">ホームへ</button>
+        </a>
     </nav>
 
-    <a href="../blog/editBlog.php">
-        <button>ブログ作成</button>
-    </a><br>
 
     <?php
-    $sql = "SELECT * FROM article_table";
-    $stmt = $pdo->query($sql);
+    $id = $_GET['id'];
+    $sql = "SELECT title,body FROM article_table WHERE id=:id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam("id", $id, PDO::PARAM_INT);
+    $stmt->execute();
     $result = $stmt->fetchAll();
-    $i = 0;
-    echo "ブログ一覧<br>";
-    foreach ($result as $line) {
-        ?>
-        <a href="../blog/viewBlog.php?id=<?php echo $line[0]; ?>">
-            <button>
-                <?php echo $result[$i]['title'] ?>
-            </button><br>
-        </a>
-        <?php
-        $i += 1;
-    }
     ?>
-
-
+    <div hidden="true" id="articleText">
+        <?php echo $result[0]['body']; ?>
+    </div>
+    <div id=output></div>
 
 
 
@@ -65,7 +50,7 @@ $pdo = connect();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-
+    <script src="viewBlog.js"></script>
 </body>
 
 </html>
