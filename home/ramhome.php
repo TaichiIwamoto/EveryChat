@@ -32,6 +32,9 @@ $pdo = connect();
 
     <a href="../blog/editBlog.php">
         <button>ブログ作成</button>
+    </a>
+    <a href="../blog/selectBlog">
+        <button>ブログ編集</button>
     </a><br>
 
     <?php
