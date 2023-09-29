@@ -3,6 +3,7 @@ if (!empty($_POST['tmpSave'])) {
     if (!empty($_POST['articleBody']) && !empty($_POST['articleTitle'])) {
         require_once("connectDB.php");
         $pdo = connect();
+        $date = date("Y/m/d H:i:s");
         $title = $_POST['articleTitle'];
         $body = $_POST['articleBody'];
         $sql = "SELECT * FROM article_table WHERE title=:title LIMIT 1";
@@ -10,23 +11,31 @@ if (!empty($_POST['tmpSave'])) {
         $stmt->bindParam("title", $title, PDO::PARAM_STR);
         $stmt->execute();
         $count = $stmt->fetchColumn();
-
+        if (!empty($_POST['devLang'])) {
+            $language = $_POST['devLang'];
+        } else {
+            $language = "言語設定なし";
+        }
         if ($count == 0) {
-            $sql = "INSERT INTO article_table (author,title,body,upload) VALUES ('churritos97',:title,:body,0)";
+            $sql = "INSERT INTO article_table (author,title,body,language,date,upload) VALUES ('churritos97',:title,:body,:language,:date,0)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam('title', $title, PDO::PARAM_STR);
             $stmt->bindParam('body', $body, PDO::PARAM_STR);
+            $stmt->bindParam('language', $language, PDO::PARAM_STR);
+            $stmt->bindParam('date', $date, PDO::PARAM_STR);
+
             $stmt->execute();
         } else {
-            $sql = "UPDATE article_table set title=:new_title, body=:body WHERE title=:title";
+            $sql = "UPDATE article_table SET body=:body,date=:date,language=:language WHERE title=:title";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam('title', $title, PDO::PARAM_STR);
             $stmt->bindParam('body', $body, PDO::PARAM_STR);
-            $stmt->bindParam('new_title', $title, PDO::PARAM_STR);
+            $stmt->bindParam('date', $date, PDO::PARAM_STR);
+            $stmt->bindParam('language', $language, PDO::PARAM_STR);
+
             $stmt->execute();
         }
     }
-
 }
 ?>
 <!DOCTYPE html>
@@ -53,7 +62,7 @@ if (!empty($_POST['tmpSave'])) {
     </nav>
 
     <!-- 記事タイトル -->
-    <form action="" method="post">
+    <form action="" method="post" id="form">
         ブログタイトル<br>
         <input readonly="true" name="articleTitle" placeholder="記事タイトル" type="text" size="97" id="articleName">
         <!-- 記事タイトル -->
@@ -63,15 +72,26 @@ if (!empty($_POST['tmpSave'])) {
         <div class="btn-group" role="group" aria-label="Basic outlined example">
             <button id="articleEdit" type="button" class="btn-outline-primary">編集</button>
             <button id="articlePreview" type="button" class="btn-outline-primary">プレビュー</button>
-        </div><br>
+        </div>
         <!-- 切り替えDOM -->
 
+        <!-- 言語選択 -->
+        <div class="dropdown">
+            言語選択<br>
+            <button name="developLanguage" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-expanded="false">
+            </button>
+            <ul id="dropdownAll" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            </ul>
+        </div>
+        <!-- 言語選択 -->
 
         <!-- 記事本文 -->
         <div id="output"></div>
         <textarea id="articleBody" name="articleBody" cols="100" rows="30"></textarea><br>
-
         <!-- 記事本文 -->
+
+
 
         <!-- 挿入DOM -->
         <div class="btn-group" role="group" aria-label="Basic outlined example">
@@ -80,6 +100,7 @@ if (!empty($_POST['tmpSave'])) {
             <button id="youtubeSelected" type="button" class="btn-outline-primary">YouTube</button>
         </div><br>
         <!-- 挿入DOM -->
+
 
 
         <!-- 記事保存 -->
@@ -114,9 +135,10 @@ if (!empty($_POST['tmpSave'])) {
                 </div>
             </div>
         </div>
+
+        <input type="text" name="devLang" id="devLang">
     </form>
     <!-- モーダルウィンドウ -->
-
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -130,7 +152,6 @@ if (!empty($_POST['tmpSave'])) {
         crossorigin="anonymous"></script>
 
     <script src="./editBlog.js"></script>
-
 </body>
 
 </html>
