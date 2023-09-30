@@ -52,92 +52,124 @@ if (!empty($_POST['tmpSave'])) {
 </head>
 
 <body>
+    <!-- トップヘッダ -->
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <div class="container-fluid">
-            <img src="../resource/RAMSNOISE.png" class="img-fluid">
-        </div>
-        <a href="../home/ramhome.php">
-            <button class="btn btn-primary">ホームへ</button>
-        </a>
-    </nav>
-
-    <!-- 記事タイトル -->
-    <form action="" method="post" id="form">
-        ブログタイトル<br>
-        <input readonly="true" name="articleTitle" placeholder="記事タイトル" type="text" size="97" id="articleName">
-        <!-- 記事タイトル -->
-        <br>
-
-        <!-- 切り替えDOM -->
-        <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button id="articleEdit" type="button" class="btn-outline-primary">編集</button>
-            <button id="articlePreview" type="button" class="btn-outline-primary">プレビュー</button>
-        </div>
-        <!-- 切り替えDOM -->
-
-        <!-- 言語選択 -->
-        <div class="dropdown">
-            言語選択<br>
-            <button name="developLanguage" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-toggle="dropdown" aria-expanded="false">
-            </button>
-            <ul id="dropdownAll" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            </ul>
-        </div>
-        <!-- 言語選択 -->
-
-        <!-- 記事本文 -->
-        <div id="output"></div>
-        <textarea id="articleBody" name="articleBody" cols="100" rows="30"></textarea><br>
-        <!-- 記事本文 -->
-
-
-
-        <!-- 挿入DOM -->
-        <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button id="imgSelected" type="button" class="btn-outline-primary">画像</button>
-            <button id="linkSelected" type="button" class="btn-outline-primary">リンク</button>
-            <button id="youtubeSelected" type="button" class="btn-outline-primary">YouTube</button>
-        </div><br>
-        <!-- 挿入DOM -->
-
-
-
-        <!-- 記事保存 -->
-        <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <input name="tmpSave" id="tmpSave" type="submit" class="btn-outline-info" value="一時保存">
-            <input name="upload" type="submit" class="btn-success" value="投稿">
-            <input id="createArticle" type="submit" class="btn-outline-info" value="新規作成">
-        </div>
-        <br>
-        <!-- 記事保存 -->
-
-
-        <!-- モーダルウィンドウ -->
-        <button hidden="true" id="modalPop" type="button" class="btn btn-primary" data-toggle="modal"
-            data-target="#modal">
-            Launch demo modal
-        </button>
-        <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalLabel"></h5>
-                        <button id="modalClose" type="button" class="btn-close" data-dismiss="modal"
-                            aria-label="close">閉じる</button>
-                    </div>
-                    <div class="modal-body">
-                        <input id="insert" type="url" name="insert" placeholder="test" size="57">
-                    </div>
-                    <div class="modal-footer">
-                        <button id="inserted" type="button" class="btn btn-primary">挿入</button>
-                    </div>
+            <div class="col-md-4">
+                <img src="../resource/RAMSNOISE.png" class="img-fluid">
+            </div>
+            <div class="col-md-6"></div>
+            <div class="col-md-1">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                        aria-expanded="false">
+                        Link
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item">プロフィール</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
+            <div class="col-md-1">
+                <a href="../home/ramhome.php">
+                    <button class="btn btn-primary">ホームへ</button>
+                </a>
+            </div>
+    </nav>
+    <!-- トップヘッダ -->
 
-        <input type="text" name="devLang" id="devLang">
-    </form>
+
+
+    <!-- 記事タイトル -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4 container-fluid">
+                <form action="" method="post" id="form">
+                    ブログタイトル<br>
+                    <input readonly="true" name="articleTitle" placeholder="記事タイトル" type="text" id="articleName"
+                        size="80">
+                    <!-- 記事タイトル -->
+                    <br>
+
+                    <!-- 切り替えDOM -->
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <button id="articleEdit" type="button" class="btn-outline-primary">編集</button>
+                        <button id="articlePreview" type="button" class="btn-outline-primary">プレビュー</button>
+                    </div>
+                    <!-- 切り替えDOM -->
+
+                    <!-- 言語選択 -->
+                    <div class="dropdown">
+                        言語選択<br>
+                        <button name="developLanguage" class="btn btn-primary dropdown-toggle" type="button"
+                            id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                        </button>
+                        <ul id="dropdownAll" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        </ul>
+                    </div>
+                    <!-- 言語選択 -->
+
+                    <!-- 記事本文 -->
+                    <div id="output"></div>
+                    <textarea id="articleBody" name="articleBody" cols="80" rows="30"></textarea><br>
+                    <!-- 記事本文 -->
+
+
+
+                    <!-- 挿入DOM -->
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <button id="imgSelected" type="button" class="btn-outline-primary">画像</button>
+                        <button id="linkSelected" type="button" class="btn-outline-primary">リンク</button>
+                        <button id="youtubeSelected" type="button" class="btn-outline-primary">YouTube</button>
+                    </div><br>
+                    <!-- 挿入DOM -->
+
+
+
+                    <!-- 記事保存 -->
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <input name="tmpSave" id="tmpSave" type="submit" class="btn-outline-info" value="一時保存">
+                        <input name="upload" type="submit" class="btn-success" value="投稿">
+                        <input id="createArticle" type="submit" class="btn-outline-info" value="新規作成">
+                    </div>
+                    <br>
+                    <!-- 記事保存 -->
+
+
+                    <!-- モーダルウィンドウ -->
+                    <button hidden="true" id="modalPop" type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#modal">
+                        Launch demo modal
+                    </button>
+                    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel"></h5>
+                                    <button id="modalClose" type="button" class="btn-close" data-dismiss="modal"
+                                        aria-label="close">閉じる</button>
+                                </div>
+                                <div class="modal-body">
+                                    <input id="insert" type="url" name="insert" placeholder="test" size="57">
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="inserted" type="button" class="btn btn-primary">挿入</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="text" name="devLang" id="devLang">
+                </form>
+            </div>
+            <div class="col-md-4">
+                hello
+            </div>
+        </div>
+    </div>
+
     <!-- モーダルウィンドウ -->
 
 

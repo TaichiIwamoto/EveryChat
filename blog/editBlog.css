@@ -3,8 +3,13 @@ body{
 }
 
 img{
-    width: 5%;
+    width: 20%;
 }
 #articleName{
     resize: none;
+}
+
+.col-12{
+    margin:20px 0px;
+
 }
