@@ -15,7 +15,7 @@ img{
 /* ユーザプロフィール画像 */
 #userImage{
     border: 1px solid #CCCCCC;
-    border-radius: 50px;
+    border-radius: 50%;
 }
 
 #userImage:hover{   
@@ -28,10 +28,5 @@ img{
     top: 2px;
 }
 
-#userImageChangeText{
-    color: #AAAAAA;
-    position: absolute;
-    left: 6%;
-    top: 60%;
-}
+
 /* ユーザプロフィール画像 */

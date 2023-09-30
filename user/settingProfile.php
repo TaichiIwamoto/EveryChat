@@ -37,47 +37,63 @@
     </nav>
     <!-- トップヘッダ -->
 
-
-    <form action="" method="post">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4">
-
-                </div>
-                <div class="col-md-4" id="profileCenter">
-                    <h1>プロフィール</h1>
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <img class="img-fluid" src="../resource/guest.jpg" id="userImage" alt="プロフィール画像">
-                            <p hidden="true" id="userImageChangeText">
-                                <変更>
-                            </p>
-                        </div>
-                    </div>
-                    <p>
-                        本名
-                        <input class="form-control" type="text" nameplace="ラム太郎" name="userName">
-                    </p>
-
-                    <p>
-                        ニックネーム
-                        <input class="form-control" type="text" nameplace="ラムラック" name="userNickName">
-                    </p>
-
-                    <p>
-
-                    </p>
-
-
-
-                </div>
-                <div class="col-md-4">
-
-                </div>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- 画面左部分 -->
+            <div class="col-md-4">
             </div>
+            <!-- 画面左部分 -->
+
+            <!-- 画面中央 -->
+            <div class="col-md-4" id="profileCenter">
+                <h1>$UserNickName</h1>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <img class="img-fluid" src="../resource/guest.jpg" id="userImage" alt="プロフィール画像">
+                        <p hidden="true" id="userImageChangeText">
+                            <変更>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-primary container-fluid">
+                            プロフィールを編集
+                        </button>
+                    </div>
+                </div>
+                <p>
+                    本名
+                    <input class="form-control" type="text" nameplace="ラム太郎" name="userName">
+                </p>
+
+                <p>
+                    ニックネーム
+                    <input class="form-control" type="text" nameplace="ラムラック" name="userNickName">
+                </p>
+
+                <p>
+
+                </p>
+
+
+
+            </div>
+            <!-- 画面中央 -->
+
+            <!-- 画面右部分 -->
+            <div class="col-md-4">
+
+            </div>
+            <!-- 画面右部分 -->
+
         </div>
-    </form>
+    </div>
+
 
 
 
