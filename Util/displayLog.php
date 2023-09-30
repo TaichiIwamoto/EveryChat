@@ -18,6 +18,8 @@ $sql = "CREATE TABLE IF NOT EXISTS article_table"
     . "author char(32),"
     . "title TEXT,"
     . "body MEDIUMTEXT,"
+    . "language char(20),"
+    . "date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,"
     . "upload TINYINT"
     . ");";
 $stmt = $pdo->query($sql);

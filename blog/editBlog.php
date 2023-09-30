@@ -3,6 +3,7 @@ if (!empty($_POST['tmpSave'])) {
     if (!empty($_POST['articleBody']) && !empty($_POST['articleTitle'])) {
         require_once("connectDB.php");
         $pdo = connect();
+        $date = date("Y/m/d H:i:s");
         $title = $_POST['articleTitle'];
         $body = $_POST['articleBody'];
         $sql = "SELECT * FROM article_table WHERE title=:title LIMIT 1";
@@ -10,23 +11,31 @@ if (!empty($_POST['tmpSave'])) {
         $stmt->bindParam("title", $title, PDO::PARAM_STR);
         $stmt->execute();
         $count = $stmt->fetchColumn();
-
+        if (!empty($_POST['devLang'])) {
+            $language = $_POST['devLang'];
+        } else {
+            $language = "言語設定なし";
+        }
         if ($count == 0) {
-            $sql = "INSERT INTO article_table (author,title,body,upload) VALUES ('churritos97',:title,:body,0)";
+            $sql = "INSERT INTO article_table (author,title,body,language,date,upload) VALUES ('churritos97',:title,:body,:language,:date,0)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam('title', $title, PDO::PARAM_STR);
             $stmt->bindParam('body', $body, PDO::PARAM_STR);
+            $stmt->bindParam('language', $language, PDO::PARAM_STR);
+            $stmt->bindParam('date', $date, PDO::PARAM_STR);
+
             $stmt->execute();
         } else {
-            $sql = "UPDATE article_table set title=:new_title, body=:body WHERE title=:title";
+            $sql = "UPDATE article_table SET body=:body,date=:date,language=:language WHERE title=:title";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam('title', $title, PDO::PARAM_STR);
             $stmt->bindParam('body', $body, PDO::PARAM_STR);
-            $stmt->bindParam('new_title', $title, PDO::PARAM_STR);
+            $stmt->bindParam('date', $date, PDO::PARAM_STR);
+            $stmt->bindParam('language', $language, PDO::PARAM_STR);
+
             $stmt->execute();
         }
     }
-
 }
 ?>
 <!DOCTYPE html>
@@ -43,80 +52,126 @@ if (!empty($_POST['tmpSave'])) {
 </head>
 
 <body>
+    <!-- トップヘッダ -->
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <div class="container-fluid">
-            <img src="../resource/RAMSNOISE.png" class="img-fluid">
-        </div>
-        <a href="../home/ramhome.php">
-            <button class="btn btn-primary">ホームへ</button>
-        </a>
-    </nav>
-
-    <!-- 記事タイトル -->
-    <form action="" method="post">
-        ブログタイトル<br>
-        <input readonly="true" name="articleTitle" placeholder="記事タイトル" type="text" size="97" id="articleName">
-        <!-- 記事タイトル -->
-        <br>
-
-        <!-- 切り替えDOM -->
-        <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button id="articleEdit" type="button" class="btn-outline-primary">編集</button>
-            <button id="articlePreview" type="button" class="btn-outline-primary">プレビュー</button>
-        </div><br>
-        <!-- 切り替えDOM -->
-
-
-        <!-- 記事本文 -->
-        <div id="output"></div>
-        <textarea id="articleBody" name="articleBody" cols="100" rows="30"></textarea><br>
-
-        <!-- 記事本文 -->
-
-        <!-- 挿入DOM -->
-        <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button id="imgSelected" type="button" class="btn-outline-primary">画像</button>
-            <button id="linkSelected" type="button" class="btn-outline-primary">リンク</button>
-            <button id="youtubeSelected" type="button" class="btn-outline-primary">YouTube</button>
-        </div><br>
-        <!-- 挿入DOM -->
-
-
-        <!-- 記事保存 -->
-        <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <input name="tmpSave" id="tmpSave" type="submit" class="btn-outline-info" value="一時保存">
-            <input name="upload" type="submit" class="btn-success" value="投稿">
-            <input id="createArticle" type="submit" class="btn-outline-info" value="新規作成">
-        </div>
-        <br>
-        <!-- 記事保存 -->
-
-
-        <!-- モーダルウィンドウ -->
-        <button hidden="true" id="modalPop" type="button" class="btn btn-primary" data-toggle="modal"
-            data-target="#modal">
-            Launch demo modal
-        </button>
-        <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalLabel"></h5>
-                        <button id="modalClose" type="button" class="btn-close" data-dismiss="modal"
-                            aria-label="close">閉じる</button>
-                    </div>
-                    <div class="modal-body">
-                        <input id="insert" type="url" name="insert" placeholder="test" size="57">
-                    </div>
-                    <div class="modal-footer">
-                        <button id="inserted" type="button" class="btn btn-primary">挿入</button>
-                    </div>
+            <div class="col-md-4">
+                <img src="../resource/RAMSNOISE.png" class="img-fluid">
+            </div>
+            <div class="col-md-6"></div>
+            <div class="col-md-1">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle form-control" type="button" data-toggle="dropdown"
+                        aria-expanded="false">
+                        Link
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="../user/settingProfile.php">プロフィール</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </form>
-    <!-- モーダルウィンドウ -->
+            <div class="col-md-1">
+                <a href="../home/ramhome.php">
+                    <button class="btn btn-primary">ホームへ</button>
+                </a>
+            </div>
+    </nav>
+    <!-- トップヘッダ -->
 
+
+
+    <!-- 記事タイトル -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                aaaa
+            </div>
+            <div class="col-md-4 container-fluid" id="articleCSS">
+                <form action="" method="post" id="form">
+                    ブログタイトル<br>
+                    <!-- 記事タイトル -->
+                    <input readonly="true" name="articleTitle" placeholder="記事タイトル" type="text" id="articleName"
+                        class="container-fluid">
+                    <!-- 記事タイトル -->
+                    <br>
+
+                    <!-- 切り替えDOM -->
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <button id="articleEdit" type="button" class="btn-outline-primary">編集</button>
+                        <button id="articlePreview" type="button" class="btn-outline-primary">プレビュー</button>
+                    </div>
+                    <!-- 切り替えDOM -->
+
+                    <!-- 言語選択 -->
+                    <div class="dropdown">
+                        言語選択<br>
+                        <button name="developLanguage" class="btn btn-primary dropdown-toggle" type="button"
+                            id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                        </button>
+                        <ul id="dropdownAll" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        </ul>
+                    </div>
+                    <!-- 言語選択 -->
+
+                    <!-- 記事本文 -->
+                    <div id="output" class="container-fluid"></div>
+                    <textarea id="articleBody" name="articleBody" class="container-fluid" rows="30"></textarea><br>
+                    <!-- 記事本文 -->
+
+
+
+                    <!-- 挿入DOM -->
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <button id="imgSelected" type="button" class="btn-outline-primary">画像</button>
+                        <button id="linkSelected" type="button" class="btn-outline-primary">リンク</button>
+                        <button id="youtubeSelected" type="button" class="btn-outline-primary">YouTube</button>
+                    </div><br>
+                    <!-- 挿入DOM -->
+
+
+
+                    <!-- 記事保存 -->
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <input name="tmpSave" id="tmpSave" type="submit" class="btn-outline-info" value="一時保存">
+                        <input name="upload" type="submit" class="btn-success" value="投稿">
+                        <input id="createArticle" type="submit" class="btn-outline-info" value="新規作成">
+                    </div>
+                    <br>
+                    <!-- 記事保存 -->
+
+
+                    <!-- モーダルウィンドウ -->
+                    <button hidden="true" id="modalPop" type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#modal">
+                    </button>
+                    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel"></h5>
+                                    <button id="modalClose" type="button" class="btn-close" data-dismiss="modal"
+                                        aria-label="close">閉じる</button>
+                                </div>
+                                <div class="modal-body">
+                                    <input id="insert" type="url" name="insert" placeholder="test" size="57">
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="inserted" type="button" class="btn btn-primary">挿入</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input hidden="true" type="text" name="devLang" id="devLang">
+                </form>
+            </div>
+            <div class="col-md-4">
+                hello
+            </div>
+        </div>
+    </div>
+
+    <!-- モーダルウィンドウ -->
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -130,7 +185,6 @@ if (!empty($_POST['tmpSave'])) {
         crossorigin="anonymous"></script>
 
     <script src="./editBlog.js"></script>
-
 </body>
 
 </html>

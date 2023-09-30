@@ -12,8 +12,12 @@
   var articleName = document.getElementById("articleName");
   var output = document.getElementById("output");
 
+  var dropdownMenuButton = document.getElementById("dropdownMenuButton");
+
   var tmpSave = document.getElementById("tmpSave");
   var createArticle = document.getElementById("createArticle");
+
+  var form = document.getElementById("form");
 
   //エディター表示
   articleEdit.addEventListener("click", function () {
@@ -48,7 +52,7 @@
         line = line.replace("watch?v=", "embed/");
         console.log(line);
         output.innerHTML +=
-          "<iframe width=640 height=480 src=" +
+          "<iframe class=container-fluid height=320 allowfullscreen src=" +
           line +
           " title=Youtube video player frameborder=0 allow=accelerometer;></iframe><br>";
       } else {
@@ -57,6 +61,30 @@
       }
     }
   });
+
+  //言語切替
+  dropdownMenuButton.addEventListener("click", function () {
+    let dropdownAll = document.getElementById("dropdownAll");
+    let string = new Array("C", "C#", "Java", "Python", "PHP");
+    console.log(dropdownAll.childElementCount);
+    if (dropdownAll.childElementCount == 0) {
+      for (i = 0; i < string.length; i++) {
+        const languageComponent = createLanguageComponent();
+        languageComponent.textContent = string[i];
+        languageComponent.addEventListener("click", function () {
+          sessionStorage.setItem("developLang", languageComponent.textContent);
+        });
+        dropdownAll.appendChild(languageComponent);
+      }
+    }
+  });
+
+  //動的に言語選択ボタン生成
+  function createLanguageComponent() {
+    const languageComponent = document.createElement("button");
+    languageComponent.className = "dropdown-item";
+    return languageComponent;
+  }
 
   //画像挿入
   imgSelected.addEventListener("click", function () {
@@ -89,8 +117,11 @@
       let str = insert.value;
       console.log(mode);
       if (mode == "init") {
-        articleName.value = str;
-        modalClose.click();
+        if (str != "") {
+          articleName.value = str;
+          modalClose.click();
+          tmpSave.click();
+        }
       }
       if (mode == "link") {
         let regex = /^(https?|ftp)(:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+)/; //URL正規表現
@@ -120,16 +151,25 @@
       sessionStorage.setItem("articleName", articleName.value);
     });
 
-    // createArticle.addEventListener("click", function () {
-    //   articleName = "";
-    //   articleBody = "";
-    //   window.onload();
-    // });
+    //新規作成処理
+    createArticle.addEventListener("click", function () {
+      sessionStorage.removeItem("articleBody");
+      sessionStorage.removeItem("articleName");
+      sessionStorage.removeItem("developLang");
+      window.onload();
+    });
 
+    //初回読み込み又はリロード時処理
     window.addEventListener("load", function (event) {
       console.log(articleName.value);
       articleBody.value = sessionStorage.getItem("articleBody");
       articleName.value = sessionStorage.getItem("articleName");
+
+      if (sessionStorage.getItem["developLang"] !== null) {
+        dropdownMenuButton.textContent = sessionStorage.getItem("developLang");
+        let devLang = this.document.getElementById("devLang");
+        devLang.value = dropdownMenuButton.textContent;
+      }
       if (articleName.value == "") {
         mode = "init";
         insert.type = "text";
