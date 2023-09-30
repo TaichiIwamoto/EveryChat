@@ -52,7 +52,7 @@
         line = line.replace("watch?v=", "embed/");
         console.log(line);
         output.innerHTML +=
-          "<iframe width=640 height=480 src=" +
+          "<iframe class=container-fluid height=320 allowfullscreen src=" +
           line +
           " title=Youtube video player frameborder=0 allow=accelerometer;></iframe><br>";
       } else {

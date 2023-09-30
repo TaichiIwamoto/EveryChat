@@ -1,5 +1,11 @@
 body{
-    background-color:#F8F8FF;
+    background-color:#EEEEEE;
+}
+
+#articleCSS{
+    background-color: white;
+    border: 2px ridge #EEEEEE;
+    border-radius: 10px;
 }
 
 img{

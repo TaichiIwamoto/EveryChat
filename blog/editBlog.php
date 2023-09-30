@@ -61,12 +61,12 @@ if (!empty($_POST['tmpSave'])) {
             <div class="col-md-6"></div>
             <div class="col-md-1">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                    <button class="btn btn-secondary dropdown-toggle form-control" type="button" data-toggle="dropdown"
                         aria-expanded="false">
                         Link
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item">プロフィール</a></li>
+                        <li><a class="dropdown-item" href="../user/settingProfile.php">プロフィール</a></li>
                     </ul>
                 </div>
             </div>
@@ -84,12 +84,14 @@ if (!empty($_POST['tmpSave'])) {
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
+                aaaa
             </div>
-            <div class="col-md-4 container-fluid">
+            <div class="col-md-4 container-fluid" id="articleCSS">
                 <form action="" method="post" id="form">
                     ブログタイトル<br>
+                    <!-- 記事タイトル -->
                     <input readonly="true" name="articleTitle" placeholder="記事タイトル" type="text" id="articleName"
-                        size="80">
+                        class="container-fluid">
                     <!-- 記事タイトル -->
                     <br>
 
@@ -112,8 +114,8 @@ if (!empty($_POST['tmpSave'])) {
                     <!-- 言語選択 -->
 
                     <!-- 記事本文 -->
-                    <div id="output"></div>
-                    <textarea id="articleBody" name="articleBody" cols="80" rows="30"></textarea><br>
+                    <div id="output" class="container-fluid"></div>
+                    <textarea id="articleBody" name="articleBody" class="container-fluid" rows="30"></textarea><br>
                     <!-- 記事本文 -->
 
 
@@ -141,7 +143,6 @@ if (!empty($_POST['tmpSave'])) {
                     <!-- モーダルウィンドウ -->
                     <button hidden="true" id="modalPop" type="button" class="btn btn-primary" data-toggle="modal"
                         data-target="#modal">
-                        Launch demo modal
                     </button>
                     <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
@@ -161,7 +162,7 @@ if (!empty($_POST['tmpSave'])) {
                             </div>
                         </div>
                     </div>
-                    <input type="text" name="devLang" id="devLang">
+                    <input hidden="true" type="text" name="devLang" id="devLang">
                 </form>
             </div>
             <div class="col-md-4">
