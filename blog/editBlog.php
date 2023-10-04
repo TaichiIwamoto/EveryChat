@@ -53,28 +53,38 @@ if (!empty($_POST['tmpSave'])) {
 
 <body>
     <!-- トップヘッダ -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
-        <div class="container-fluid">
-            <div class="col-md-4">
-                <img src="../resource/RAMSNOISE.png" class="img-fluid">
-            </div>
-            <div class="col-md-6"></div>
-            <div class="col-md-1">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle form-control" type="button" data-toggle="dropdown"
-                        aria-expanded="false">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: hwb(172 4% 21%)">
+
+        <img class="navbar-brand" src="../resource/RAMSNOISE.png">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../home/ramhome.php">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Link
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="../user/settingProfile.php">プロフィール</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-1">
-                <a href="../home/ramhome.php">
-                    <button class="btn btn-primary">ホームへ</button>
-                </a>
-            </div>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../user/settingProfile.php">MyProfile</a>
+                        <a class="dropdown-item" href="#">MyBlog</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">ServicesList</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
     </nav>
     <!-- トップヘッダ -->
 
@@ -83,10 +93,10 @@ if (!empty($_POST['tmpSave'])) {
     <!-- 記事タイトル -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 aaaa
             </div>
-            <div class="col-md-4 container-fluid" id="articleCSS">
+            <div class="col-md-5 container-fluid" id="articleCSS">
                 <form action="" method="post" id="form">
                     ブログタイトル<br>
                     <!-- 記事タイトル -->
@@ -114,7 +124,8 @@ if (!empty($_POST['tmpSave'])) {
                     <!-- 言語選択 -->
 
                     <!-- 記事本文 -->
-                    <div id="output" class="container-fluid"></div>
+                    <div id="output" class="container-fluid">
+                    </div>
                     <textarea id="articleBody" name="articleBody" class="container-fluid" rows="30"></textarea><br>
                     <!-- 記事本文 -->
 
