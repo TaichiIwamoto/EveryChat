@@ -14,43 +14,61 @@ $pdo = connect();
     <title>RAMSNOISE</title>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+<header>
+    <div class="home">Home Page</div>
+</header>
+
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: hwb(172 4% 21%)">
         <div class="container-fluid">
             <img src="../resource/RAMSNOISE.png" class="img-fluid">
             <form class="d-flex">
+                <button type="button" class="btn btn-darkgrey">Link</button>
                 <input class="form-control me-2" type="search" placeholder="記事・成果物" aria-label="Search">
                 <button class="btn btn-secondary" type="submit">検索</button>
             </form>
         </div>
     </nav>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand"><small>HOME PAGE</small></a>
-        </div>
-    </nav>
+<body> 
 
-    <a href="../blog/editBlog.php">
-        <button>ブログ作成</button>
-    </a><br>
+    <div class="body-left">
+        <h2 class="memo-top">開発メモ</h2>
+        <div class="memo memo-color1">書籍</div>
+        <a class="memo-item" href="https://www.youtube.com/">こちらはyoutubeになります</a>
+        <div class="memo memo-color2">講座</div>
+        <a class="memo-item" href="https://www.youtube.com/">こちらもyoutubeになります</a>
+        <div class="memo memo-color3">ニュース</div>
+        <a class="memo-item" href="https://www.youtube.com/">なんとこちらもyoutubeになります</a>
 
-    <?php
-    $sql = "SELECT * FROM article_table";
-    $stmt = $pdo->query($sql);
-    $result = $stmt->fetchAll();
-    $i = 0;
-    echo "ブログ一覧<br>";
-    foreach ($result as $line) {
-        ?>
-        <a href="../blog/viewBlog.php?id=<?php echo $line[0]; ?>">
-            <button>
-                <?php echo $result[$i]['title'] ?>
-            </button><br>
-        </a>
+    </div>
+
+    <div class="body-center">
+        <h3 class="dev">開発物</h3>
+        <a href="../blog/editBlog.php">
+            <button>ブログ作成</button>
+        </a><br>
+
         <?php
-        $i += 1;
-    }
-    ?>
+        $sql = "SELECT * FROM article_table";
+        $stmt = $pdo->query($sql);
+        $result = $stmt->fetchAll();
+        $i = 0;
+        echo "ブログ一覧<br>";
+        foreach ($result as $line) {
+            ?>
+            <a href="../blog/viewBlog.php?id=<?php echo $line[0]; ?>">
+                <button>
+                    <?php echo $result[$i]['title'] ?>
+                </button><br>
+            </a>
+            <?php
+            $i += 1;
+        }
+        ?>
+    </div>
+
+    <div class="body-right">
+        <div class="service">サービス一覧</div>
+    </div>
 
 
 
