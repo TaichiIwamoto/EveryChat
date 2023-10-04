@@ -12,7 +12,6 @@ $sql = "CREATE TABLE IF NOT EXISTS user_table"
     . ");";
 $stmt = $pdo->query($sql);
 
-
 echo "TABLE一覧<br>";
 $sql = "SHOW TABLES";
 $stmt = $pdo->query($sql);
@@ -28,12 +27,11 @@ foreach ($result as $line) {
     foreach ($result as $row) {
         echo "<tr>";
         foreach ($row as $key => $value) {
-            if (!is_int($key) && $count != 1) {
+            if (!is_int($key) && $count < 1) {
                 echo "<th>{$key} </th>";
             }
         }
         $count += 1;
-
         echo "</tr>";
         echo "<tr>";
         foreach ($row as $key => $value) {
