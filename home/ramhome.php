@@ -47,6 +47,7 @@ $pdo = connect();
             <button>ブログ作成</button>
         </a><br>
 
+
         <?php
         $sql = "SELECT * FROM article_table";
         $stmt = $pdo->query($sql);
