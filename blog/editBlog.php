@@ -53,7 +53,7 @@ if (!empty($_POST['tmpSave'])) {
 
 <body>
     <!-- トップヘッダ -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: hwb(172 4% 21%)">
 
         <img class="navbar-brand" src="../resource/RAMSNOISE.png">
 
