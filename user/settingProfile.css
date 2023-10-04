@@ -1,29 +1,33 @@
-body{
-    background-color:#EEEEEE;
+body {
+    background-color: #EEEEEE;
 }
 
-img{
-    width: 20%;
+
+#headerimg {
+    display: inline-block;
+    height: 50px;
 }
 
-#profileCenter{
+#profileCenter {
     background-color: white;
     border: 2px ridge #EEEEEE;
     border-radius: 10px;
 }
 
+
 /* ユーザプロフィール画像 */
-#userImage{
+#userImage {
+    height: 100px;
     border: 1px solid #CCCCCC;
     border-radius: 50%;
 }
 
-#userImage:hover{   
+#userImage:hover {
     opacity: 0.5;
     cursor: pointer;
 }
 
-#userImage:active{
+#userImage:active {
     position: relative;
     top: 2px;
 }

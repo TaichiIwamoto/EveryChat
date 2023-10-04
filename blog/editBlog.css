@@ -1,21 +1,18 @@
-body{
-    background-color:#EEEEEE;
+body {
+    background-color: #EEEEEE;
 }
 
-#articleCSS{
+#articleCSS {
     background-color: white;
     border: 2px ridge #EEEEEE;
     border-radius: 10px;
 }
 
-img{
-    width: 20%;
+img {
+    display: inline-block;
+    height: 50px;
 }
-#articleName{
+
+#articleName {
     resize: none;
-}
-
-.col-12{
-    margin:20px 0px;
-
 }
