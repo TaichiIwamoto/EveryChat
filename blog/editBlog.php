@@ -96,7 +96,7 @@ if (!empty($_POST['tmpSave'])) {
             <div class="col-md-3">
                 aaaa
             </div>
-            <div class="col-md-6 container-fluid" id="articleCSS">
+            <div class="col-md-5 container-fluid" id="articleCSS">
                 <form action="" method="post" id="form">
                     ブログタイトル<br>
                     <!-- 記事タイトル -->
@@ -124,7 +124,8 @@ if (!empty($_POST['tmpSave'])) {
                     <!-- 言語選択 -->
 
                     <!-- 記事本文 -->
-                    <div id="output" class="container-fluid"></div>
+                    <div id="output" class="container-fluid">
+                    </div>
                     <textarea id="articleBody" name="articleBody" class="container-fluid" rows="30"></textarea><br>
                     <!-- 記事本文 -->
 
@@ -175,7 +176,7 @@ if (!empty($_POST['tmpSave'])) {
                     <input hidden="true" type="text" name="devLang" id="devLang">
                 </form>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 hello
             </div>
         </div>

@@ -51,21 +51,30 @@ $pdo = connect();
         </div>
     </nav>
     <!-- ヘッダ -->
-
-
-
-    <?php
-    $id = $_GET['id'];
-    $sql = "SELECT title,body FROM article_table WHERE id=:id";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam("id", $id, PDO::PARAM_INT);
-    $stmt->execute();
-    $result = $stmt->fetchAll();
-    ?>
-    <div hidden="true" id="articleText">
-        <?php echo $result[0]['body']; ?>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- 画面左 -->
+            <div class="col-md-3">
+            </div>
+            <!-- 画面中央 -->
+            <div class="col-md-5" id="articleCSS">
+                <?php
+                $id = $_GET['id'];
+                $sql = "SELECT title,body FROM article_table WHERE id=:id";
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam("id", $id, PDO::PARAM_INT);
+                $stmt->execute();
+                $result = $stmt->fetchAll();
+                ?>
+                <div hidden="true" id="articleText">
+                    <?php echo $result[0]['body']; ?>
+                </div>
+                <div id=output></div>
+            </div>
+            <!-- 画面右 -->
+            <div class="col-md-4"></div>
+        </div>
     </div>
-    <div id=output></div>
 
 
 
