@@ -1,5 +1,5 @@
 <?php
-require_once("connectDB.php");
+include_once(__DIR__ . "/../connectDB.php");
 $pdo = connect();
 echo "hello";
 
