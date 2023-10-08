@@ -73,10 +73,10 @@ if (!empty($_POST['tmpSave'])) {
                         Link
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../user/settingProfile.php">MyProfile</a>
-                        <a class="dropdown-item" href="#">MyBlog</a>
+                        <a class="dropdown-item" href="../user/settingProfile.php">マイプロフィール</a>
+                        <a class="dropdown-item" href="#">マイブログ</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">ServicesList</a>
+                        <a class="dropdown-item" href="#">サービス一覧詳細</a>
                     </div>
                 </li>
             </ul>
