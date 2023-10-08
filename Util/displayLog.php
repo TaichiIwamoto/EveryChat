@@ -1,6 +1,6 @@
 <?php
 require_once("connectDB.php");
-$pdo = connect();
+$pdo = Connect();
 echo "hello";
 
 $sql = "CREATE TABLE IF NOT EXISTS user_table"

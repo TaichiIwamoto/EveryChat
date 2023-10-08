@@ -50,16 +50,16 @@
     <div class="container-fluid">
         <div class="row">
             <!-- 画面左部分 -->
-            <div class="col-md-4">
+            <div class="col-lg-4">
             </div>
             <!-- 画面左部分 -->
 
             <!-- 画面中央 -->
-            <div class="col-md-4" id="profileCenter">
+            <div class="col-lg-4" id="profileCenter">
                 <h1>$UserNickName</h1>
 
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-lg-12">
                         <img class="img-fluid" src="../resource/guest.jpg" id="userImage" alt="プロフィール画像">
                         <p hidden="true" id="userImageChangeText">
                             <変更>
@@ -68,29 +68,78 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-lg-8">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="float-right">
                             <button class="btn btn-primary ">
-                                プロフィール編集
+                                プロフィール閲覧
                             </button>
                         </div>
                     </div>
                 </div>
+
                 <p>
                     本名
-                    <input class="form-control" type="text" nameplace="ラム太郎" name="userName">
+                    <input class="form-control" type="text" placeholder="ラム太郎" name="userName">
                 </p>
 
                 <p>
                     ニックネーム
-                    <input class="form-control" type="text" nameplace="ラムラック" name="userNickName">
+                    <input class="form-control" type="text" placeholder="ラムラック" name="userNickName">
                 </p>
 
                 <p>
-
+                    URL
+                    <input class="form-control" type="url" placeholder="https://ram.com/ramtaro" name="userURL">
                 </p>
+
+                <!-- 誕生日設定 -->
+                <p>
+                    誕生日
+                <div class="row" id="BirthPullDown">
+                    <!-- 年 -->
+                    <div class="dropdown">
+                        <button name="yearButton" class="btn btn-outline-secondary dropdown-toggle  dropdown-select"
+                            type="button" id="yearButton" data-toggle="dropdown" aria-expanded="false">
+                        </button>年
+                        <ul id="yearPullDown" class="dropdown-menu dropdown-scrollable" aria-labelledby="yearButton">
+                        </ul>
+                    </div>
+                    <!-- 年 -->
+
+                    <!-- 月 -->
+                    <div class="dropdown">
+                        <button name="monthButton" class="btn btn-outline-secondary dropdown-toggle  dropdown-select"
+                            type="button" id="monthButton" data-toggle="dropdown" aria-expanded="false">
+                        </button>月
+                        <ul id="monthPullDown" class="dropdown-menu" aria-labelledby="monthButton">
+                        </ul>
+                    </div>
+                    <!-- 月 -->
+
+                    <!-- 日 -->
+                    <div class="dropdown">
+                        <button name="dayButton" class="btn btn-outline-secondary dropdown-toggle  dropdown-select"
+                            type="button" id="dayButton" data-toggle="dropdown" aria-expanded="false">
+                        </button>日
+                        <ul id="dayPullDown" class="dropdown-menu" aria-labelledby="dayButton">
+                        </ul>
+                    </div>
+                    <!-- 日 -->
+
+                </div>
+                </p>
+                <!-- 誕生日設定 -->
+                <p>
+                    自己紹介文
+                    <textarea class="container-fluid" name="introduction" rows="5"></textarea>
+                </p>
+
+                <form action="" method="post">
+                    <input class="btn btn-success float-right" type="submit" value="編集">
+                </form>
+
 
 
 
@@ -98,7 +147,7 @@
             <!-- 画面中央 -->
 
             <!-- 画面右部分 -->
-            <div class="col-md-4">
+            <div class=" col-lg-4">
 
             </div>
             <!-- 画面右部分 -->
