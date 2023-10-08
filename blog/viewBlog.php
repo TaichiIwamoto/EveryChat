@@ -1,6 +1,6 @@
 <?php
-require_once("connectDB.php");
-$pdo = Connect();
+include_once(__DIR__ . "/../connectDB.php");
+$pdo = connect();
 ?>
 <!DOCTYPE html>
 <html lang="en">

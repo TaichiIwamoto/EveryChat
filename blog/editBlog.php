@@ -1,8 +1,8 @@
 <?php
 if (!empty($_POST['tmpSave'])) {
     if (!empty($_POST['articleBody']) && !empty($_POST['articleTitle'])) {
-        require_once("connectDB.php");
-        $pdo = Connect();
+        include_once(__DIR__ . "/../connectDB.php");
+        $pdo = connect();
         $date = date("Y/m/d H:i:s");
         $title = $_POST['articleTitle'];
         $body = $_POST['articleBody'];
