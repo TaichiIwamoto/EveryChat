@@ -73,7 +73,7 @@
                     <div class="col-lg-4">
                         <div class="float-right">
                             <button class="btn btn-primary ">
-                                プロフィール編集
+                                プロフィール閲覧
                             </button>
                         </div>
                     </div>
@@ -135,6 +135,10 @@
                     自己紹介文
                     <textarea class="container-fluid" name="introduction" rows="5"></textarea>
                 </p>
+
+                <form action="" method="post">
+                    <input class="btn btn-success float-right" type="submit" value="編集">
+                </form>
 
 
 
