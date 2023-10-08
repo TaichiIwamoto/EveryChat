@@ -20,11 +20,32 @@ img {
     height:100vh;
 }
 
-.body-center{
-    float: left;
+#card{
+    margin: 2%;
+    width: 90%;
+}
+
+#cardBody{
+    border-bottom: 1px solid #CCCCCC;
+}
+
+#cardTitle{
+    border-bottom: 2px solid #CCCCCC;
+    margin-bottom: 1%;
+    padding-bottom: 1%;
+    width: auto;
+}
+
+#body-center{
     background-color: white;
-    width: 45%;
-    height:100vh;
+    border-radius: 10px;
+}
+
+
+#userImage{
+    height: 40px;
+    border: 1px solid #CCCCCC;
+    border-radius: 50%;
 }
 
 .body-right{
