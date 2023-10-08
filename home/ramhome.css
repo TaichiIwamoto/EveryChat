@@ -36,6 +36,10 @@ img {
     width: auto;
 }
 
+#contentBody{
+    padding-top: 2%;
+}
+
 #body-center{
     background-color: white;
     border-radius: 10px;

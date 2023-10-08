@@ -1,3 +1,6 @@
+<?php
+include(__DIR__ . "/../home/header.html");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,47 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../home/ramhome.css" type="text/css">
     <link rel="stylesheet" href="./settingProfile.css" type="text/css">
     <title>RAMSNOISE-PROFILE</title>
 </head>
 
 <body>
-    <!-- トップヘッダ -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: hwb(172 4% 21%)">
-
-        <img id="headerimg" class="navbar-brand" src="../resource/RAMSNOISE.png">
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="../home/ramhome.php">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Link
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../user/settingProfile.php">マイプロフィール</a>
-                        <a class="dropdown-item" href="#">マイブログ</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">サービス一覧詳細</a>
-                    </div>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
+    <!-- パンくず -->
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../home/ramhome.php">ホーム</a></li>
+            <li class="breadcrumb-item">
+                マイプロフィール
+            </li>
+        </ol>
     </nav>
-    <!-- トップヘッダ -->
-
+    <!-- パンくず -->
     <div class="container-fluid">
         <div class="row">
             <!-- 画面左部分 -->
