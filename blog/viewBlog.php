@@ -1,6 +1,6 @@
 <?php
 require_once("connectDB.php");
-$pdo = connect();
+$pdo = Connect();
 ?>
 <!DOCTYPE html>
 <html lang="en">

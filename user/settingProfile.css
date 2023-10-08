@@ -31,6 +31,28 @@ body {
     position: relative;
     top: 2px;
 }
-
-
 /* ユーザプロフィール画像 */
+
+/* 誕生日設定 */
+#yearPullDown{
+    max-height: 200px;
+    height: auto;
+    overflow-y: auto;
+}
+
+#monthPullDown{
+    max-height: 200px;
+    height: auto;
+    overflow-y: auto;
+}
+
+#dayPullDown{
+    max-height: 200px;
+    height: auto;
+    overflow-y: auto;
+}
+/* 誕生日設定 */
+
+#BirthPullDown{
+    margin-left: 0.2%;
+}
