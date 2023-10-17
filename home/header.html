@@ -10,25 +10,50 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="../home/ramhome.php">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="../home/ramhome.php">ホーム <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    Link
+                    リンク
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="../user/settingProfile.php">マイプロフィール</a>
-                    <a class="dropdown-item" href="#">マイブログ</a>
-                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">サービス一覧詳細</a>
                 </div>
             </li>
+    
         </ul>
+        
         <form class="form-inline my-2 my-lg-0">
+            <!-- ログイン前 -->
+            <div id = "loginButton">
+                <button class="btn btn-success" type="submit">新規登録</button>
+                <button class="btn btn-success" type="submit"><a href="../user/login.php">ログイン</a></button>
+            </div>
+            <!-- ログイン前 -->
+
+
+            <!-- ログイン後 -->
+            <ul class="navbar-nav mr-auto" id="loginDropDown">
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                アカウント
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="../user/login.php">サインイン</a>
+                    <a class="dropdown-item" href="../user/settingProfile.php">マイプロフィール</a>
+                    <a class="dropdown-item" href="#">マイブログ</a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </li>
+        </ul>
+
+  
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
 </nav>
 </header>
+<script src="../home/ramhome.js"></script>

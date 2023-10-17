@@ -98,3 +98,10 @@ img {
 .service{
     margin: 15px;
 }
+
+#createButton{
+ margin-right: 5px;
+}
+#loginButton{
+    margin-right: 5px;
+}
