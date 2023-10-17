@@ -1,5 +1,5 @@
 <?php
-function connect()
+function Connect()
 {
     require_once('vendor/autoload.php');
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);

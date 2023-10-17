@@ -1,0 +1,58 @@
+body {
+    background-color: #EEEEEE;
+}
+
+
+#headerimg {
+    display: inline-block;
+    height: 50px;
+}
+
+#profileCenter {
+    background-color: white;
+    border: 2px ridge #EEEEEE;
+    border-radius: 10px;
+}
+
+
+/* ユーザプロフィール画像 */
+#userImage {
+    height: 100px;
+    border: 1px solid #CCCCCC;
+    border-radius: 50%;
+}
+
+#userImage:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#userImage:active {
+    position: relative;
+    top: 2px;
+}
+/* ユーザプロフィール画像 */
+
+/* 誕生日設定 */
+#yearPullDown{
+    max-height: 200px;
+    height: auto;
+    overflow-y: auto;
+}
+
+#monthPullDown{
+    max-height: 200px;
+    height: auto;
+    overflow-y: auto;
+}
+
+#dayPullDown{
+    max-height: 200px;
+    height: auto;
+    overflow-y: auto;
+}
+/* 誕生日設定 */
+
+#BirthPullDown{
+    margin-left: 0.2%;
+}
