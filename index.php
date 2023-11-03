@@ -23,6 +23,10 @@
         <button>connectDB TEST</button>
     </a>
 
+    <a href="../login.php">
+        <button>login test</button>
+    </a>
+
 </body>
 
 </html>

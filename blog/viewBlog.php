@@ -1,6 +1,15 @@
 <?php
-require_once("connectDB.php");
-$pdo = Connect();
+include_once(__DIR__ . "/../connectDB.php");
+$pdo = connect();
+
+$id = $_GET['id'];
+$sql = "SELECT title,body FROM article_table WHERE id=:id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam("id", $id, PDO::PARAM_INT);
+$stmt->execute();
+$result = $stmt->fetchAll();
+
+include(__DIR__ . "/../home/header.html");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,41 +25,16 @@ $pdo = Connect();
 </head>
 
 <body>
-    <!-- ヘッダ -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: hwb(172 4% 21%)">
-
-        <img class="navbar-brand" src="../resource/RAMSNOISE.png">
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="../home/ramhome.php">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Link
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../user/settingProfile.php">MyProfile</a>
-                        <a class="dropdown-item" href="#">MyBlog</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">ServicesList</a>
-                    </div>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
+    <!-- パンくず -->
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../home/ramhome.php">ホーム</a></li>
+            <li class="breadcrumb-item">
+                <?php echo "ブログ閲覧：" . $result[0]['title']; ?>
+            </li>
+        </ol>
     </nav>
-    <!-- ヘッダ -->
+    <!-- パンくず -->
     <div class="container-fluid">
         <div class="row">
             <!-- 画面左 -->
@@ -58,14 +42,6 @@ $pdo = Connect();
             </div>
             <!-- 画面中央 -->
             <div class="col-md-5" id="articleCSS">
-                <?php
-                $id = $_GET['id'];
-                $sql = "SELECT title,body FROM article_table WHERE id=:id";
-                $stmt = $pdo->prepare($sql);
-                $stmt->bindParam("id", $id, PDO::PARAM_INT);
-                $stmt->execute();
-                $result = $stmt->fetchAll();
-                ?>
                 <div hidden="true" id="articleText">
                     <?php echo $result[0]['body']; ?>
                 </div>
