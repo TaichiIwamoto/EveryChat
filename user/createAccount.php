@@ -39,7 +39,7 @@ include(__DIR__ . "/../home/header.html");
 
                 <!-- 画面中央部分 -->
 
-                <div class="col-lg-3" id="center">
+                <div class="col-lg-3" id="center1">
                     メールアドレスで登録
                     <form action="" method="post">
                         <input class="form-control" type="text" placeholder="ユーザー名" name="userName">
@@ -64,10 +64,13 @@ include(__DIR__ . "/../home/header.html");
             <div class="row">
                 <div class="col-lg-3">
                 </div>
-                <div class="col-lg-6" id="login">
-                    <div class="row">
-                        ログイン
-                    </div>
+                <div class="col-lg-6" id="center3">
+                    <p class="text-center">
+                        RAMSNOISEに登録済みの方はこちら<br>
+                        <button class="btn btn-primary" onclick="location.href='./login.php'">
+                            ログイン
+                        </button>
+                    </p>
                 </div>
                 <div class="col-lg-3">
                 </div>
