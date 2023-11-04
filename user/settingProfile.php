@@ -34,8 +34,7 @@ include(__DIR__ . "/../home/header.html");
 
             <!-- 画面中央 -->
             <div class="col-lg-4" id="profileCenter">
-                <h1>$UserNickName</h1>
-
+                <h1 id="userName">$UserNickName</h1>
                 <div class="row">
                     <div class="col-lg-12">
                         <img class="img-fluid" src="../resource/guest.jpg" id="userImage" alt="プロフィール画像">
