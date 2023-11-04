@@ -1,3 +1,9 @@
+//ユーザー情報取得
+var userName = document.getElementById("userName");
+if (sessionStorage.getItem("userName") != null) {
+  userName.textContent = sessionStorage.getItem("userName");
+}
+
 // プロフィール画像
 var userImage = document.getElementById("userImage");
 var userImageChangeText = document.getElementById("userImageChangeText");
