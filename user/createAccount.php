@@ -1,5 +1,24 @@
 <?php
 include(__DIR__ . "/../home/header.html");
+include_once(__DIR__ . "/../connectDB.php");
+if (!empty($_POST['submit'])) {
+    if (!empty($_POST['mailAddress'])) {
+        $mail = $_POST['mailAddress'];
+
+        header('Location:./createAccountMail.php?mail=' . $mail);
+
+        // $pass = $_POST['userPass'];
+        // $pass = password_hash($pass, PASSWORD_DEFAULT);
+        // $pdo = connect();
+        // $sql = "INSERT INTO user_table (name,mail,userpass) VALUES (:name,:mail,:userpass)";
+        // $stmt = $pdo->prepare($sql);
+        // $stmt->bindParam("name", $_POST["userName"], PDO::PARAM_STR);
+        // $stmt->bindParam("mail", $_POST["mailAddress"], PDO::PARAM_STR);
+        // $stmt->bindParam("userpass", $pass, PDO::PARAM_STR);
+        // $stmt->execute();
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,10 +61,11 @@ include(__DIR__ . "/../home/header.html");
                 <div class="col-lg-3" id="center1">
                     メールアドレスで登録
                     <form action="" method="post">
-                        <input class="form-control" type="text" placeholder="ユーザー名" name="userName">
-                        <input class="form-control" type="mail" placeholder="メールアドレス" name="mailAddress">
-                        <input class="form-control" type="password" placeholder="パスワード" name="userPass">
+                        <input class="form-control" type="email" placeholder="メールアドレス" name="mailAddress">
+                        <input class="btn btn-primary" type="submit" value="確認メールを送信する" name="submit">
                     </form>
+
+
                 </div>
 
                 <div class="col-lg-3" id="center2">
