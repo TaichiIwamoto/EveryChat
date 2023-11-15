@@ -21,18 +21,7 @@ input{
 #center1{
     padding: 2%;
     background-color: white;
-    border-right: 1px solid #DDDDDD;
-}
-
-#center2{
-    padding: 2%;
-    background-color: white;
-}
-
-#center3{
-    padding-top: 20px;
     border-top: 1px solid #DDDDDD;
-    background-color: white;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -42,5 +31,20 @@ input{
     background-color: #EEEEEE;
     border: 1px solid #DDDDDD;
     border-radius: 5px;
+}
+
+#progress-text{
+    text-align: center;
+    padding-top: 10px;
+}
+
+#progress-out{
+    background-color: white;
+    padding-bottom: 10px;
+}
+
+#progress{
+    padding: 10px;
+
 }
 /* 画面中央 */

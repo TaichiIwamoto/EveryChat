@@ -113,7 +113,7 @@ include(__DIR__ . "/../home/header.html");
                 <div class="col-lg-6" id="center3">
                     <p class="text-center">
                         アカウントをまだお持ちでない方はこちらから<br>
-                        <button class="btn btn-primary" onclick="location.href='./createAccount.php'">新規登録</button>
+                        <button class="btn btn-primary" onclick="location.href='./creatAccount.php'">新規登録</button>
                     </p>
                 </div>
                 <!-- 右 -->
