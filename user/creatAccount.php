@@ -1,26 +1,20 @@
 <?php
 include_once(__DIR__ . "/../connectDB.php");
+include_once(__DIR__ . "/../util/mailChecker.php");
+
 if (!empty($_POST['submit'])) {
     if (!empty($_POST['mailAddress'])) {
         $mail = $_POST['mailAddress'];
-
-        header('Location:./creatAccountMail.php?mail=' . $mail);
-
-        // $pass = $_POST['userPass'];
-        // $pass = password_hash($pass, PASSWORD_DEFAULT);
-        // $pdo = connect();
-        // $sql = "INSERT INTO user_table (name,mail,userpass) VALUES (:name,:mail,:userpass)";
-        // $stmt = $pdo->prepare($sql);
-        // $stmt->bindParam("name", $_POST["userName"], PDO::PARAM_STR);
-        // $stmt->bindParam("mail", $_POST["mailAddress"], PDO::PARAM_STR);
-        // $stmt->bindParam("userpass", $pass, PDO::PARAM_STR);
-        // $stmt->execute();
+        $check = mailChecker($mail);
+        if ($check == 1) {
+            header('Location:./creatAccountMail.php?mail=' . $mail);
+        } else {
+            header('Location:./creatFailed.php?mail=' . $mail);
+        }
     }
 }
 
 include(__DIR__ . "/../home/header.html");
-
-
 ?>
 
 <!DOCTYPE html>

@@ -44,6 +44,10 @@
 
 .red{
     color: red;
+}
+
+#passwordLength{
+    background-color: #FF6666;
 
 }
 

@@ -1,10 +1,20 @@
 <?php
+require_once(__DIR__ . "/../connectDB.php");
 $mailAddress = $_GET['mail'];
 
 if (!empty($_POST['userName']) && !empty($_POST['userPass']) && !empty($_POST['userPassCheck'])) {
-    header("Location:./creatAccountSettingDetail.php");
-} else {
+    $pdo = Connect();
+    $userName = $_POST['userName'];
+    $userPass = $_POST['userPass'];
+    $userPass = password_hash($userPass, PASSWORD_DEFAULT);
 
+    $sql = "INSERT INTO user_table (name,mail,userpass) VALUES (:name,:mail,:userpass)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":name", $userName, PDO::PARAM_STR);
+    $stmt->bindParam(":mail", $mailAddress, PDO::PARAM_STR);
+    $stmt->bindParam(":userpass", $userPass, PDO::PARAM_STR);
+    $stmt->execute();
+    header("Location:./creatAccountSettingDetail.php");
 }
 include(__DIR__ . "/../home/header.html");
 
@@ -74,8 +84,11 @@ include(__DIR__ . "/../home/header.html");
                         </p>
                         <p>
                             パスワード<span class="red">*</span>
+                        <div class="input-group">
                             <input id="password" type="password" name="userPass" placeholder="*******"
                                 class="form-control form">
+                            <span class="input-group-text" id="passwordLength">0</span>
+                        </div>
                         </p>
                         <p>
                             パスワード確認<span class="red">*</span>
