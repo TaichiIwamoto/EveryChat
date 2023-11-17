@@ -1,6 +1,6 @@
 <header>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: hwb(172 4% 21%)">
-    <img class=" navbar-brand" src="../resource/RAMSNOISE.png">
+    <img class="navbar-brand" src="../resource/RAMSNOISE.png">
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,8 +27,8 @@
         <form class="form-inline my-2 my-lg-0">
             <!-- ログイン前 -->
             <div id = "loginButton">
-                <button class="btn btn-success" type="submit"><a href="../user/createAccount.php">新規登録</a></button>
-                <button class="btn btn-success" type="submit"><a href="../user/login.php">ログイン</a></button>
+                <button type="button" class="btn btn-success" onclick="location.href='../user/creatAccount.php'">新規登録</button>
+                <button type="button" class="btn btn-success" onclick="location.href='../user/login.php'">ログイン</button>
             </div>
             <!-- ログイン前 -->
 
@@ -42,7 +42,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="../user/settingProfile.php">マイプロフィール</a>
-                    <a class="dropdown-item" href="#">マイブログ</a>
+                    <a class="dropdown-item" href="../blog/myBlog.php">マイブログ</a>
                     <a class="dropdown-item" href="../user/logout.php">ログアウト</a>
                     <div class="dropdown-divider"></div>
                 </div>

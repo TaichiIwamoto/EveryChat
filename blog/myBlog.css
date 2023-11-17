@@ -1,0 +1,21 @@
+#center{
+    background-color: white;
+    border-radius: 5px;
+    border-right: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+#right{
+    background-color: white;
+    border-radius: 5px;
+    border-right: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+#rightContent{
+    margin-top: 10px;
+}
+
+#checkBox{
+    text-align: center;
+}

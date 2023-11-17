@@ -42,7 +42,7 @@ include(__DIR__ . "/../home/header.html");
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="../home/ramhome.css" type="text/css">
-    <link rel="stylesheet" href="./createAccount.css" type="text/css">
+    <link rel="stylesheet" href="./creatAccount.css" type="text/css">
 
     <title>ログイン</title>
 </head>
@@ -113,7 +113,7 @@ include(__DIR__ . "/../home/header.html");
                 <div class="col-lg-6" id="center3">
                     <p class="text-center">
                         アカウントをまだお持ちでない方はこちらから<br>
-                        <button class="btn btn-primary" onclick="location.href='./createAccount.php'">新規登録</button>
+                        <button class="btn btn-primary" onclick="location.href='./creatAccount.php'">新規登録</button>
                     </p>
                 </div>
                 <!-- 右 -->
